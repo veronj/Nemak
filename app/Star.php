@@ -10,4 +10,6 @@ class Star extends Model
     {
         return $this->belongsTo('App\Commandant');
     }
+
+
 }

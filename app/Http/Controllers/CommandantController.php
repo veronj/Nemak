@@ -14,11 +14,21 @@ class CommandantController extends Controller
 
         $commandant = Commandant::findOrFail($id);
         $stars = Commandant::find($id)->stars;
+        $nearStars = $commandant->nearStars();
+        
         $data = array(
-                'commandant' => $commandant
+                'commandant' => $commandant,
+                'nearStars' => $nearStars
         );
+
+        //dd($commandant->nearStars());
 //        var_dump($commandant);
         //dd($stars);
         return view('show', $data);
+    }
+    
+    public function moving()
+    {
+        
     }
 }
