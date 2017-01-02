@@ -36,14 +36,16 @@ class CreateStarsTable extends Migration
         DB::table('stars')->insert([
             ['name' => 'Abork', 'x_position' => '00', 'y_position' => '00', 'population' => '270', 'men' => 17000, 'lasers' => 4000, 'commandant_id' => 1],
             ['name' => 'Bezig', 'x_position' => '00', 'y_position' => '01', 'population' => '470', 'men' => 20000, 'lasers' => 6000, 'commandant_id' => 1],
-            ['name' => 'Tefug', 'x_position' => '00', 'y_position' => '02', 'population' => '670', 'men' => 13000, 'lasers' => 7000, 'commandant_id' => 1],
+            ['name' => 'Cefug', 'x_position' => '00', 'y_position' => '02', 'population' => '670', 'men' => 13000, 'lasers' => 7000, 'commandant_id' => 1],
             ['name' => 'Dabak', 'x_position' => '00', 'y_position' => '03', 'population' => '210', 'men' => 9000, 'lasers' => 760, 'commandant_id' => 2],
+            ['name' => 'Erpok', 'x_position' => '00', 'y_position' => '04', 'population' => '210', 'men' => 9000, 'lasers' => 760, 'commandant_id' => 2],
+
             ['name' => 'Labek', 'x_position' => '01', 'y_position' => '00', 'population' => '110', 'men' => 9000, 'lasers' => 760, 'commandant_id' => 2],
             ['name' => 'Sokur', 'x_position' => '01', 'y_position' => '01', 'population' => '710', 'men' => 9000, 'lasers' => 760, 'commandant_id' => 1],
             ['name' => 'Zedir', 'x_position' => '01', 'y_position' => '02', 'population' => '310', 'men' => 9000, 'lasers' => 760, 'commandant_id' => 1],
             ['name' => 'Altab', 'x_position' => '01', 'y_position' => '03', 'population' => '220', 'men' => 9000, 'lasers' => 760, 'commandant_id' => 1],
             ['name' => 'Rosig', 'x_position' => '02', 'y_position' => '00', 'population' => '90', 'men' => 9000, 'lasers' => 760, 'commandant_id' => 2],
-            ['name' => 'Altab', 'x_position' => '02', 'y_position' => '01', 'population' => '220', 'men' => 9000, 'lasers' => 760, 'commandant_id' => 1],
+            ['name' => 'Razab', 'x_position' => '02', 'y_position' => '01', 'population' => '220', 'men' => 9000, 'lasers' => 760, 'commandant_id' => 1],
             ['name' => 'Xerok', 'x_position' => '02', 'y_position' => '02', 'population' => '220', 'men' => 9000, 'lasers' => 760, 'commandant_id' => 2],
             ['name' => 'Mader', 'x_position' => '02', 'y_position' => '03', 'population' => '220', 'men' => 9000, 'lasers' => 760, 'commandant_id' => 1],
             ['name' => 'Kaleb', 'x_position' => '03', 'y_position' => '00', 'population' => '220', 'men' => 9000, 'lasers' => 760, 'commandant_id' => 1],

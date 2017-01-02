@@ -22,10 +22,9 @@ class Commandant extends Model
         $x = $this->x_position;
         $y = $this->y_position;
 
-
-        $nearStars[0] = Star::where('x_position', '=', $x - 1)->where('y_position', '=', $y + 1)->first();
-        $nearStars[1] = Star::where('x_position', '=', $x)->where('y_position', '=', $y + 1)->first();
-        $nearStars[2] = Star::where('x_position', '=', $x + 1)->where('y_position', '=', $y + 1)->first();
+        $nearStars[0] = Star::where('x_position', '=', ($x - 1))->where('y_position', '=', ($y + 1))->first();
+        $nearStars[1] = Star::where('x_position', '=', $x + 0)->where('y_position', '=', ($y + 1))->first();
+        $nearStars[2] = Star::where('x_position', '=', ($x + 1))->where('y_position', '=', ($y + 1))->first();
 
         $nearStars[3] = Star::where('x_position', '=', $x - 1)->where('y_position', '=', $y)->first();
         $nearStars[4] = Star::where('x_position', '=', $x)->where('y_position', '=', $y)->first();

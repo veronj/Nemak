@@ -39,6 +39,8 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+                    <a href="{{ url('/show/1') }}">Burseig</a>
+                    <a href="{{ url('/show/2') }}">Balthazar</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
