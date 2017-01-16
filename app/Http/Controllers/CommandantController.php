@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Session;
 use App\Http\Requests;
 use App\Commandant;
 
@@ -11,26 +11,20 @@ class CommandantController extends Controller
 {
     public function show($id)
     {
-
         $commandant = Commandant::findOrFail($id);
-        $stars = Commandant::find($id)->stars;
         $nearStars = $commandant->nearStars();
-       // dd($nearStars);
         $data = array(
                 'commandant' => $commandant,
                 'nearStars' => $nearStars
         );
 
-        //dd($commandant->nearStars());
-//        var_dump($commandant);
-        //dd($stars);
         return view('show', $data);
     }
     
     public function moving($direction)
     {
         $info = "Direction choisie " . $direction;
-        $messages = new \illuminate\Support\MessageBag($info);
+
 
         $commandant = Commandant::findOrFail(1);
 /*        if ($direction == 'West') {
@@ -71,11 +65,46 @@ class CommandantController extends Controller
         }
 
         $commandant->save();
-
+        Session::flash('moved', $info);
 //        $data = array(
 //            'message' => $message
 //        );
-        return $this->show(1)->with($messages);
+        return $this->show(1);
+        //return view('show');
+    }
+
+    public function movingJson($info)
+    {
+        $dataInput = json_decode($info);
+        dd($dataInput);
+
+        $info = "Direction choisie " . $direction;
+
+
+        $commandant = Commandant::findOrFail(1);
+        /*        if ($direction == 'West') {
+                    $commandant->x_position -= 1;
+                } elseif ($direction == 'East') {
+                $commandant->x_position += 1;
+                }*/
+
+        switch ($direction) {
+
+            case "North":
+                $commandant->y_position += 1;
+                break;
+            case "South":
+                $commandant->y_position -= 1;
+                break;
+
+        }
+
+        $commandant->save();
+        Session::flash('moved', $info);
+//        $data = array(
+//            'message' => $message
+//        );
+        return $this->show(1);
         //return view('show');
     }
 }

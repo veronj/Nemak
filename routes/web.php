@@ -22,3 +22,4 @@ Route::get('/home', 'HomeController@index');
 Route::get('/show/{id}', 'CommandantController@show')->name('show');
 
 Route::get('/moving/{direction}', ['uses' =>'CommandantController@moving']);
+Route::get('/movingJson/{info}', ['uses' =>'CommandantController@movingJson']);
