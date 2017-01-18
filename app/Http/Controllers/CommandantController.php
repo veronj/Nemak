@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Session;
 use App\Http\Requests;
 use App\Commandant;
+use App\Order_attack;
 
 class CommandantController extends Controller
 {
@@ -13,9 +14,11 @@ class CommandantController extends Controller
     {
         $commandant = Commandant::findOrFail($id);
         $nearStars = $commandant->nearStars();
+        $nearStarsData = $this->getOrders($nearStars, $id);
+        //dd($nearStarsData);
         $data = array(
                 'commandant' => $commandant,
-                'nearStars' => $nearStars
+                'nearStars' => $nearStarsData
         );
 
         return view('show', $data);
@@ -106,5 +109,14 @@ class CommandantController extends Controller
 //        );
         return $this->show(1);
         //return view('show');
+    }
+
+    public function getOrders($nearStars, $id)
+    {
+        foreach ($nearStars as $star){
+           // $attack_order[] = Order_attack::where('turn_id', 1)->where('commandant_id', $id)->where('star_id', $star->id)->get();
+            $star['attack'] = Order_attack::where('turn_id', 1)->where('commandant_id', $id)->where('star_id', $star->id)->first();
+        }
+       return $nearStars;
     }
 }

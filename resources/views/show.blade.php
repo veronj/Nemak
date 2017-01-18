@@ -86,9 +86,17 @@
                                 <td>{{ $star->status }}</td>
                                 <td>{{ $star->commandant_id }}</td>
 
-                                <td>{{ Form::text('star[]', $star->id, ['hidden' => 'hidden']) }}{{ Form::select('type[]', ['A' => 'Attack', 'D' => 'Defense']) }}</td>
-                                <td>{{ Form::text('men[]', 0, ['class' => 'form-control']) }}</td>
-                                <td>{{ Form::text('lasers[]', 0, array('class' => 'form-control')) }}</td>
+                                @if ($star['attack'])
+
+                                    <td>{{ Form::text('star[]', $star->id, ['hidden' => 'hidden']) }}{{ Form::select('type[]', ['A' => 'Attack', 'D' => 'Defense'], $star['attack']['type']) }}</td>
+                                    <td>{{ Form::text('men[]', $star['attack']['men'], ['class' => 'form-control']) }}</td>
+                                    <td>{{ Form::text('lasers[]', $star['attack']['lasers'], array('class' => 'form-control')) }}</td>
+                                @else
+                                    <td>{{ Form::text('star[]', $star->id, ['hidden' => 'hidden']) }}{{ Form::select('type[]', ['A' => 'Attack', 'D' => 'Defense']) }}</td>
+                                    <td>{{ Form::text('men[]', 0, ['class' => 'form-control']) }}</td>
+                                    <td>{{ Form::text('lasers[]', 0, array('class' => 'form-control')) }}</td>
+                                @endif
+
                             </tr>
                         @endforeach
                         {!! Form::submit('Valider', array('class' => 'btn btn-success')) !!}

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Star;
+use App\Order_attack;
 
 class Commandant extends Model
 {
@@ -36,7 +37,8 @@ class Commandant extends Model
 
         return $nearStars;
     }
-    
+
+
     
 
 }
