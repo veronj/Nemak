@@ -24,4 +24,4 @@ Route::get('/show/{id}', 'CommandantController@show')->name('show');
 Route::get('/moving/{direction}', ['uses' =>'CommandantController@moving']);
 Route::get('/movingJson/{info}', ['uses' =>'CommandantController@movingJson']);
 
-Route::resource('/order', 'OrderController');
+Route::post('order/store', [ 'as' => 'order.store', 'uses' =>  'OrderController@store']);

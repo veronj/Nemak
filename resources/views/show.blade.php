@@ -75,7 +75,8 @@
                         <th>Type</th>
                         <th>Hommes</th>
                         <th> Lasers </th>
-                        @foreach($commandant->stars as $star)
+                        {{ Form::text('commandant_id', $commandant->id, ['hidden' => 'hidden']) }}
+                        @foreach($nearStars as $star)
                             <tr>
                                 <td>{{ $star->name }}</td>
                                 <td>{{ $star->men }}</td>
@@ -84,9 +85,10 @@
                                 <td>{{ $star->population }}</td>
                                 <td>{{ $star->status }}</td>
                                 <td>{{ $star->commandant_id }}</td>
-                                <td>{{ Form::select('type', ['A' => 'Attack', 'D' => 'Defense']) }}</td>
-                                <td>{{ Form::text('men', null, array('class' => 'form-control')) }}</td>
-                                <td>{{ Form::text('lasers', null, array('class' => 'form-control')) }}</td>
+
+                                <td>{{ Form::text('star[]', $star->id, ['hidden' => 'hidden']) }}{{ Form::select('type[]', ['A' => 'Attack', 'D' => 'Defense']) }}</td>
+                                <td>{{ Form::text('men[]', 0, ['class' => 'form-control']) }}</td>
+                                <td>{{ Form::text('lasers[]', 0, array('class' => 'form-control')) }}</td>
                             </tr>
                         @endforeach
                         {!! Form::submit('Valider', array('class' => 'btn btn-success')) !!}
