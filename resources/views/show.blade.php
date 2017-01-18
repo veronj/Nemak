@@ -102,6 +102,32 @@
                         {!! Form::submit('Valider', array('class' => 'btn btn-success')) !!}
                         {!! Form::close() !!}
                     </table>
+
+                    <table class="table table-hover table-condensed bg-info">
+                                {!! Form::open(array('method' => 'post', 'route' => 'orderMission.store')) !!}
+
+                                <th>Type</th>
+                                <th>Navettes</th>
+
+                                {{ Form::text('commandant_id', $commandant->id, ['hidden' => 'hidden']) }}
+                                @foreach($nearStars as $star)
+                                    <tr>
+                                        @if ($star['mission'])
+
+                                            <td>{{ Form::text('star[]', $star->id, ['hidden' => 'hidden']) }}{{ Form::select('type[]', ['C' => 'Commerce', 'P' => 'Pillage'], $star['mission']['type']) }}</td>
+                                            <td>{{ Form::text('ships[]', $star['mission']['ships'], ['class' => 'form-control']) }}</td>
+
+                                        @else
+                                            <td>{{ Form::text('star[]', $star->id, ['hidden' => 'hidden']) }}{{ Form::select('type[]', ['C' => 'Commerce', 'P' => 'Pillage']) }}</td>
+                                            <td>{{ Form::text('ships[]', 0, ['class' => 'form-control']) }}</td>
+
+                                        @endif
+
+                                    </tr>
+                                @endforeach
+                                {!! Form::submit('Mission', array('class' => 'btn btn-success')) !!}
+                                {!! Form::close() !!}
+                            </table>
 </div>
                         <div class="col-md-2"></div>
                         <div class="col-md-4">

@@ -7,6 +7,7 @@ use Session;
 use App\Http\Requests;
 use App\Commandant;
 use App\Order_attack;
+use App\Order_mission;
 
 class CommandantController extends Controller
 {
@@ -116,6 +117,7 @@ class CommandantController extends Controller
         foreach ($nearStars as $star){
            // $attack_order[] = Order_attack::where('turn_id', 1)->where('commandant_id', $id)->where('star_id', $star->id)->get();
             $star['attack'] = Order_attack::where('turn_id', 1)->where('commandant_id', $id)->where('star_id', $star->id)->first();
+            $star['mission'] = Order_mission::where('turn_id', 1)->where('commandant_id', $id)->where('star_id', $star->id)->first();
         }
        return $nearStars;
     }

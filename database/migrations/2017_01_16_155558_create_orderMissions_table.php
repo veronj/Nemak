@@ -13,7 +13,7 @@ class CreateOrderMissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('orderMissions', function (Blueprint $table) {
+        Schema::create('order_missions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('turn_id');
             $table->integer('commandant_id');
@@ -31,6 +31,6 @@ class CreateOrderMissionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orderMissions');
+        Schema::dropIfExists('order_missions');
     }
 }
