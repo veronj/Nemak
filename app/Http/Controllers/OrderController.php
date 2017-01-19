@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Order_attack;
+use App\OrderAttack;
 
 class OrderController extends Controller
 {
@@ -29,10 +29,10 @@ class OrderController extends Controller
 
         //
         for ($i = 0; $i < $count; $i++) {
-            $order = Order_attack::where('turn_id', 1)->where('commandant_id', $input['commandant_id'])->where('star_id', $input['star'][$i])->first();
+            $order = OrderAttack::where('turn_id', 1)->where('commandant_id', $input['commandant_id'])->where('star_id', $input['star'][$i])->first();
             if (!$order) {
                 if ($input['men'][$i] > 0 || $input['lasers'][$i] > 0) {
-                    $order = new Order_attack;
+                    $order = new OrderAttack;
                     $order->turn_id = 1;
                     $order->commandant_id = $input['commandant_id'];
                     $order->star_id = $input['star'][$i];

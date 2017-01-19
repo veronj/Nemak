@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Order_mission;
+use App\OrderMission;
 
 class OrderMissionController extends Controller
 {
@@ -42,10 +42,10 @@ class OrderMissionController extends Controller
         $count = count($input['star']);
 
         for ($i = 0; $i < $count; $i++) {
-            $order = Order_mission::where('turn_id', 1)->where('commandant_id', $input['commandant_id'])->where('star_id', $input['star'][$i])->first();
+            $order = OrderMission::where('turn_id', 1)->where('commandant_id', $input['commandant_id'])->where('star_id', $input['star'][$i])->first();
             if (!$order) {
                 if ($input['ships'][$i] > 0) {
-                    $order = new Order_mission;
+                    $order = new OrderMission;
                     $order->turn_id = 1;
                     $order->commandant_id = $input['commandant_id'];
                     $order->star_id = $input['star'][$i];
