@@ -163,7 +163,6 @@
             </div>
         </div>
     </div>
-
                 {{--<?php--}}
                 {{--$north = array(); $north["id"] = $commandant->id; $north["direction"] = "north"; $north["star"] = $nearStars[1]->name; $northJson = json_encode($north);--}}
                 {{--$south = array(); $south["id"] = $commandant->id; $south["direction"] = "south"; $south["star"] = $nearStars[7]->name; $southJson = json_encode($south);--}}
