@@ -22,10 +22,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        DB::table('users')->insert([
-            ['name' => 'jb', 'email' => 'jb@example.com', 'password' => '123456'],
-            ['name' => 'bob', 'email' => 'bob@example.com', 'password' => '123456']
-    ]);
+        
 
     }
 

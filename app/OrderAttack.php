@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Order_attack extends Model
+class OrderAttack extends Model
 {
 
 }

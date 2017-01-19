@@ -28,15 +28,8 @@ class CreateCommandantsTable extends Migration
 
         });
 
-//        Schema::table('commandants', function (Blueprint $table) {
-//            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-//        });
 
-        DB::table('commandants')->insert([
-            ['name' => 'Burseig', 'x_position' => '1', 'y_position' => '1', 'techno' => '270', 'men' => 27000, 'lasers' => 20000, 'ships' => 300, 'user_id' => 1],
-            ['name' => 'Balthazar', 'x_position' => '1', 'y_position' => '1', 'techno' => '270', 'men' => 17000, 'lasers' => 20000, 'ships' => 300, 'user_id' => 2]
-        ]);
-
+       
     }
 
     /**

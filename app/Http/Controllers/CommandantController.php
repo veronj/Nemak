@@ -16,11 +16,13 @@ class CommandantController extends Controller
     {
         $commandant = Commandant::findOrFail($id);
         $nearStars = $commandant->nearStars();
-        $nearStarsData = $this->getOrders($nearStars, $id);
-        //dd($nearStarsData);
+        $nearStarsData = $this->getStarsOrders($nearStars, $id);
+        $orders = $this->getOrders($id);
+       
         $data = array(
                 'commandant' => $commandant,
-                'nearStars' => $nearStarsData
+                'nearStars' => $nearStarsData,
+                'orders' => $orders
         );
 
         return view('show', $data);
@@ -113,14 +115,28 @@ class CommandantController extends Controller
         //return view('show');
     }
 
-    public function getOrders($nearStars, $id)
+    public function getOrders($id)
+    {
+        
+        $nearStars['buy'] = OrderBuy::where('turn_id', 1)->where('commandant_id', $id)->first();
+        if(!($nearStars['buy'])){
+            $nearStars['buy']['men'] = 0;
+            $nearStars['buy']['lasers'] = 0;
+            $nearStars['buy']['robots'] = 0;
+            $nearStars['buy']['missiles'] = 0;
+            $nearStars['buy']['ships'] = 0;
+        }
+       return $nearStars;
+    }
+
+    public function getStarsOrders($nearStars, $id)
     {
         foreach ($nearStars as $star){
-           // $attack_order[] = Order_attack::where('turn_id', 1)->where('commandant_id', $id)->where('star_id', $star->id)->get();
+
             $star['attack'] = OrderAttack::where('turn_id', 1)->where('commandant_id', $id)->where('star_id', $star->id)->first();
             $star['mission'] = OrderMission::where('turn_id', 1)->where('commandant_id', $id)->where('star_id', $star->id)->first();
         }
-        $nearStars['buy'] = OrderBuy::where('turn_id', 1)->where('commandant_id', $id)->first();
-       return $nearStars;
+
+        return $nearStars;
     }
 }
