@@ -139,4 +139,24 @@ class CommandantController extends Controller
 
         return $nearStars;
     }
+
+    public function resolveBuys($id)
+    {
+        $orders = $this->getOrders($id);
+        $commandant = Commandant::findOrFail($id);
+
+        if ($orders['buy']['men'] > 0)
+        {
+            if ($orders['buy']['men'] > $commandant->novars)
+            {
+                $menBought = $commandant->novars;
+                $commandant->novars = 0;
+            }else {
+                $menBought = $orders['buy']['men'];
+                $commandant->novars -= $orders['buy']['men'];
+            }
+            $commandant->save();
+        }
+        dd("you bought " . $menBought . " men. You have " . $commandant->novars . " novars left." );
+    }
 }

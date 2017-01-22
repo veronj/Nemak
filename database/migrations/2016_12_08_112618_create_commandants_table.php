@@ -19,6 +19,8 @@ class CreateCommandantsTable extends Migration
             $table->integer('x_position');
             $table->integer('y_position');
             $table->integer('techno');
+            $table->integer('novars');
+            $table->integer('minerals');
             $table->integer('men');
             $table->integer('lasers');
             $table->integer('ships');

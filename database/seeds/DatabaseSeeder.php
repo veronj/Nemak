@@ -42,8 +42,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('commandants')->insert([
-            ['name' => 'Burseig', 'x_position' => '1', 'y_position' => '1', 'techno' => '270', 'men' => 27000, 'lasers' => 20000, 'ships' => 300, 'user_id' => 1],
-            ['name' => 'Balthazar', 'x_position' => '1', 'y_position' => '1', 'techno' => '270', 'men' => 17000, 'lasers' => 20000, 'ships' => 300, 'user_id' => 2]
+            ['name' => 'Burseig', 'x_position' => '1', 'y_position' => '1', 'techno' => '270', 'novars' => 10000, 'minerals' => 5000, 'men' => 27000, 'lasers' => 20000, 'ships' => 300, 'user_id' => 1],
+            ['name' => 'Balthazar', 'x_position' => '1', 'y_position' => '1', 'techno' => '270', 'novars' => 10000, 'minerals' => 5000, 'men' => 17000, 'lasers' => 20000, 'ships' => 300, 'user_id' => 2]
         ]);
 
     }

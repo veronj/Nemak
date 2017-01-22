@@ -40,10 +40,10 @@ class OrderBuyController extends Controller
         $input = $request->all();
         $this->validate($request, array());
 
-            $order = Order_buy::where('turn_id', 1)->where('commandant_id', $input['commandant_id'])->first();
+            $order = Orderbuy::where('turn_id', 1)->where('commandant_id', $input['commandant_id'])->first();
             if (!$order) {
                 if ($input['ships'] > 0 || $input['men'] > 0 ||$input['lasers'] > 0) {
-                    $order = new Order_buy;
+                    $order = new Orderbuy;
                     $order->turn_id = 1;
                     $order->commandant_id = $input['commandant_id'];
                     $order->men = $input['men'];
